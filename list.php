@@ -20,7 +20,7 @@
               echo "<a href=\"test.php?test=$key\">$question</a><br>";
           }
       } else {
-          echo 'Папка $filename не существует';
+          echo "Папка $filename не существует";
       }       
   ?>
   <p><a href="admin.php">Загрузить тесты</a></p>
