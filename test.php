@@ -46,7 +46,7 @@
   <title><?=$test_number?></title>
 </head>
 <body>
-  <form method="POST">
+  <form method="post">
     <?php 
         foreach ($questions as $keys => $value) { ?> 
           <fieldset>
@@ -77,7 +77,7 @@
       }    
 
       if (isset($_POST['check']) && !$answers) {
-          echo "Еще разок!" . '<br>';
+          echo 'Еще разок!' . '<br>';
       }   
   ?>
   <p><a href="list.php">Выбрать тест</a></p>
