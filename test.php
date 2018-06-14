@@ -1,7 +1,7 @@
 <?php
     $list = glob('tests/*.json');
     $questions = [];
-    $answers_true = [];
+    $answersTrue = [];
     $answers = [];
 
     if (!isset($list[$_GET['test']])) {
@@ -16,16 +16,16 @@
         }
     }
 
-    $test_number = $decode[0]['test'];
+    $testNumber = $decode[0]['test'];
 
     foreach ($decode as $value) {
         if (!array_key_exists('test', $value)) {
             $questions[] = $value;
         }
-        $answer_true = $value['true'];  
+        $answerTrue = $value['true'];  
         foreach ($value as $key => $answer) {
-            if ($key === $answer_true) {
-                $answers_true[] = $answer;
+            if ($key === $answerTrue) {
+                $answersTrue[] = $answer;
             }   
         }
     }
@@ -36,14 +36,14 @@
         }        
     }
    
-    $count_true = count(array_intersect($answers, $answers_true));
+    $countTrue = count(array_intersect($answers, $answersTrue));
 ?>
 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title><?=$test_number?></title>
+  <title><?=$testNumber?></title>
 </head>
 <body>
   <form method="post">
@@ -64,15 +64,15 @@
   </form>
   <?php
       if (!empty($_POST) && $answers) {
-          if (!array_diff($answers, $answers_true) && (count($answers) === count($answers_true))) {
-              echo 'Тест пройден!' . '<br>' . 'Правильных ответов: ' . $count_true . '<br>'; ?>
+          if (!array_diff($answers, $answersTrue) && (count($answers) === count($answersTrue))) {
+              echo 'Тест пройден!' . '<br>' . 'Правильных ответов: ' . $countTrue . '<br>'; ?>
               <form action="certificate.php" method="POST">
                 <input type="text" name="username" placeholder="Введите ваше имя">
                 <input type="submit" name="generate" value="Cертификат">
               </form>
           <?php
           } else {
-              echo 'Тест не пройден, попробуйте еще раз.' . '<br>'  . 'Правильных ответов: ' . $count_true . '<br>';
+              echo 'Тест не пройден, попробуйте еще раз.' . '<br>'  . 'Правильных ответов: ' . $countTrue . '<br>';
           }          
       }    
 

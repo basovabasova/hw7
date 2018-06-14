@@ -26,14 +26,3 @@
     header('Content-Type: image/png');
 
     imagepng($image);
-?>
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>hw7</title>
-</head>
-<body>
-</body>
-</html>

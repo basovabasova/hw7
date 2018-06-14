@@ -4,9 +4,9 @@
             $file = $value['name'];
             $tmp = $value['tmp_name'];
             $uploaddir = 'tests/';
-            $path_info = pathinfo($uploaddir . $file);
+            $pathInfo = pathinfo($uploaddir . $file);
 
-            if ($path_info['extension'] === 'json') {
+            if ($pathInfo['extension'] === 'json') {
                 move_uploaded_file($tmp, $uploaddir . $file);
                 //echo 'Файл передан';
                 header('refresh:3; url=list.php');
