@@ -15,7 +15,6 @@
           foreach ($list as $key => $file) {
               $test = file_get_contents($file);
               $decode = json_decode($test, true);
-              echo '<pre>';
               $question = $decode[0]['test'];
               echo "<a href=\"test.php?test=$key\">$question</a><br>";
           }
